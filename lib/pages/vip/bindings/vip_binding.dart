@@ -1,6 +1,10 @@
+import 'package:flutter_zhihu_getx/pages/vip/contorllers/sub/vip_find_controller.dart';
+import 'package:flutter_zhihu_getx/pages/vip/contorllers/sub/vip_purchase_controller.dart';
+import 'package:flutter_zhihu_getx/pages/vip/contorllers/sub/vip_salt_book_controller.dart';
+import 'package:flutter_zhihu_getx/pages/vip/contorllers/sub/vip_salt_knowledge_controller.dart';
+import 'package:flutter_zhihu_getx/pages/vip/contorllers/sub/vip_salt_story_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/bindings_interface.dart';
+import '../contorllers/sub/vip_salt_evaluate_controller.dart';
 import '../contorllers/vip_controller.dart';
 
 /// 日期：2023-02-15
@@ -10,6 +14,17 @@ import '../contorllers/vip_controller.dart';
 class VipBinding extends Bindings{
   @override
   void dependencies() {
+    //Vip下一级控制器绑定
+    Get.lazyPut(() => VipFindController());
+    Get.lazyPut(() => VipPurchaseController());
+    Get.lazyPut(() => VipSaltBookController());
+    Get.lazyPut(() => VipSaltEvaluateController());
+    Get.lazyPut(() => VipSaltKnowledgeController());
+    Get.lazyPut(() => VipSaltStoryController());
+
+
+
+    //Vip主控制器绑定
     Get.lazyPut(() => VipController());
   }
 

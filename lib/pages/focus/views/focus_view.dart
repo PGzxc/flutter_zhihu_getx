@@ -7,10 +7,9 @@ import '../../../provider/refresh/refresh_paging_state_page.dart';
 import '../../../res/app_theme.dart';
 import '../contorllers/focus_controller.dart';
 
-/// 日期：2022-05-15
+/// 日期：2023-02-16
 /// 描述：主页-关注页面
 /// 说明：
-
 
 class FocusView extends GetView<FocusController> {
   const FocusView({Key? key}) : super(key: key);
@@ -18,17 +17,18 @@ class FocusView extends GetView<FocusController> {
   @override
   Widget build(BuildContext context) {
     return RefreshPagingStatePage<FocusController>(
-      controller: controller,
-      onPressed: () => controller.onFirstInHomeData(),
-      onRefresh: () => controller.onRefreshHomeData(),
-      onLoadMore: () => controller.onLoadMoreHomeData(),
-      refreshController: controller.refreshController,
-      header: const ClassicHeader(),
-      lottieRocketRefreshHeader: false,
-      child:  Scaffold(
-        appBar: AppBar(title: Text("关注"),centerTitle: true),
-        body:   Container(alignment:Alignment.center,color: AppTheme.nearlyBlue, child: Text("关注")),
-      )
-    );
+        controller: controller,
+        onPressed: () => controller.onFirstInFocusData(),
+        onRefresh: () => controller.onRefreshFocusData(),
+        onLoadMore: () => controller.onLoadMoreFocusData(),
+        refreshController: controller.refreshController,
+        header: const ClassicHeader(),
+        lottieRocketRefreshHeader: false,
+        child: Scaffold(
+          body: Container(
+              alignment: Alignment.center,
+              color: AppTheme.nearlyBlue,
+              child: Text("关注")),
+        ));
   }
 }

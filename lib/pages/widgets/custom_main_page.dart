@@ -39,9 +39,15 @@ class _CustomMainPageState extends State<CustomMainPage> {
       color: AppTheme.background,
       child: Scaffold(
           backgroundColor: Colors.transparent,
+          appBar: PreferredSize(   //全局修改appBar的高度-0
+              preferredSize: const Size.fromHeight(0),
+              child: AppBar()),
           body: Stack(
             children: <Widget>[
-              tabBody,
+              Column(children: [ //此处解决tabBody显示不全问题(部分位于bottomBar下方)
+                Expanded(flex: 1, child: tabBody),
+                Padding(padding: EdgeInsets.only(bottom: 62+ MediaQuery.of(context).padding.bottom))
+              ]),
               bottomBar(),
             ],
           )),

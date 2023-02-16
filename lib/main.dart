@@ -10,6 +10,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'config/global_config.dart';
 import 'i18n/i18n_message.dart';
 
+/// 日期：2023-02-15
+/// 描述：程序入口文件
+/// 说明：
+
 Future<void> main() async {
   await Config.init();
   runApp(RefreshConfiguration(

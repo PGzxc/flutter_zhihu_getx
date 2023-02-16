@@ -1,7 +1,7 @@
-
+import 'package:flutter_zhihu_getx/provider/state/load_state.dart';
 
 import '../../../provider/base_refresh_controller.dart';
-import '../../../provider/state/load_state.dart';
+import '../../../utils/logger/logger_util.dart';
 
 /// 日期：2023-02-15
 /// 描述：主页-主屏页面-我的--控制器
@@ -12,23 +12,30 @@ class MeController extends BaseRefreshController {
   @override
   void onInit() {
     super.onInit();
-    onFirstInHomeData();
+    onFirstInMeData();
   }
 
   /// 第一次进入首页
-  void onFirstInHomeData() {
+  void onFirstInMeData() {
     if(refreshLoadState!=null){
-      this.refreshLoadState= LoadState.success;
+      refreshLoadState= LoadState.success;
+      refreshController.refreshCompleted(); //刷新完成
     }
   }
 
   /// 下拉刷新首页
-  void onRefreshHomeData() {
-
+  void onRefreshMeData() {
+    LoggerUtil.d('============> onRefreshMeData()', tag: 'MeController');
+    Future.delayed(const Duration(seconds: 2), () {
+      refreshController.refreshCompleted(); //刷新完成
+    });
   }
 
   /// 上滑加载更多
-  void onLoadMoreHomeData() {
-
+  void onLoadMoreMeData() {
+    LoggerUtil.d('============> onLoadMoreMeData()', tag: 'MeController');
+    Future.delayed(const Duration(seconds: 2), () {
+      refreshController.refreshCompleted(); //刷新完成
+    });
   }
 }

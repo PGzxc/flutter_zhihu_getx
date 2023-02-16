@@ -9,13 +9,22 @@ class Config {
   static const isDebug = true;
 
   static Future init() async {
+
+    //配置收集状态栏
     WidgetsFlutterBinding.ensureInitialized();
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual);
+    // SystemChrome.setSystemUIChangeCallback((systemOverlaysAreVisible) async {
+    //   await Future.delayed(const Duration(seconds: 1));
+    //   SystemChrome.restoreSystemUIOverlays();
+    // });
+
+
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   const SystemUiOverlayStyle(
+    //     statusBarColor: Colors.transparent,
+    //     statusBarIconBrightness: Brightness.dark,
+    //   ),
+    // );
 
     ///Get配置
     await Get.putAsync(() => GetConfig().init());

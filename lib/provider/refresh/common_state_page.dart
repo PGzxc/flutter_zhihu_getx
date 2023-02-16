@@ -11,7 +11,7 @@ import '../state/shimmer_loading_page.dart';
 /// 类名: common_state_page.dart
 /// 创建日期: 11/16/21 on 3:58 PM
 /// 描述: Common State Widget 封装
-/// 作者: 杨亮
+
 
 class CommonStatePage<T extends BaseController> extends StatefulWidget {
   const CommonStatePage({

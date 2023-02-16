@@ -1,5 +1,8 @@
 import 'package:flutter_zhihu_getx/pages/focus/bindings/focus_binding.dart';
 import 'package:flutter_zhihu_getx/pages/home/bindings/home_binding.dart';
+import 'package:flutter_zhihu_getx/pages/home/views/sub/home_hot_rank_view.dart';
+import 'package:flutter_zhihu_getx/pages/home/views/sub/home_idea_view.dart';
+import 'package:flutter_zhihu_getx/pages/home/views/sub/home_recommend_view.dart';
 import 'package:flutter_zhihu_getx/pages/me/bindings/me_binding.dart';
 import 'package:flutter_zhihu_getx/pages/vip/bindings/vip_binding.dart';
 import 'package:get/route_manager.dart';
@@ -35,7 +38,6 @@ class AppPages {
 
       /// binding: MainBinding()
     ),
-
     ///设置页面
     // GetPage(
     //     name: Routes.setting.nameToRoute(),

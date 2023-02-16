@@ -7,7 +7,7 @@ import '../../../provider/refresh/refresh_paging_state_page.dart';
 import '../../../res/app_theme.dart';
 import '../contorllers/me_controller.dart';
 
-/// 日期：2022-05-15
+/// 日期：2023-02-16
 /// 描述：主页-我的页面
 /// 说明：
 class MeView extends GetView<MeController> {
@@ -16,17 +16,18 @@ class MeView extends GetView<MeController> {
   @override
   Widget build(BuildContext context) {
     return RefreshPagingStatePage<MeController>(
-      controller: controller,
-      onPressed: () => controller.onFirstInHomeData(),
-      onRefresh: () => controller.onRefreshHomeData(),
-      onLoadMore: () => controller.onLoadMoreHomeData(),
-      refreshController: controller.refreshController,
-      header: const ClassicHeader(),
-      lottieRocketRefreshHeader: false,
-      child: Scaffold(
-        appBar: AppBar(title: Text("我的"),centerTitle: true),
-        body:   Container(alignment:Alignment.center,color: AppTheme.deactivatedText, child: Text("我的")),
-      )
-    );
+        controller: controller,
+        onPressed: () => controller.onFirstInMeData(),
+        onRefresh: () => controller.onRefreshMeData(),
+        onLoadMore: () => controller.onLoadMoreMeData(),
+        refreshController: controller.refreshController,
+        header: const ClassicHeader(),
+        lottieRocketRefreshHeader: false,
+        child: Scaffold(
+          body: Container(
+              alignment: Alignment.center,
+              color: AppTheme.deactivatedText,
+              child: Text("我的")),
+        ));
   }
 }

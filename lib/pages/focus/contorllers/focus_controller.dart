@@ -1,5 +1,6 @@
 import '../../../provider/base_refresh_controller.dart';
 import '../../../provider/state/load_state.dart';
+import '../../../utils/logger/logger_util.dart';
 
 /// 日期：2023-02-15
 /// 描述：主页-主屏页面-关注--控制器
@@ -10,23 +11,30 @@ class FocusController extends BaseRefreshController {
   @override
   void onInit() {
     super.onInit();
-    onFirstInHomeData();
+    onFirstInFocusData();
   }
 
   /// 第一次进入首页
-  void onFirstInHomeData() {
+  void onFirstInFocusData() {
     if(refreshLoadState!=null){
-      this.refreshLoadState= LoadState.success;
+      refreshLoadState= LoadState.success;
+      //refreshController.refreshCompleted(); //刷新完成
     }
   }
 
   /// 下拉刷新首页
-  void onRefreshHomeData() {
-
+  void onRefreshFocusData() {
+    Future.delayed(const Duration(seconds: 2), () {
+      refreshController.refreshCompleted(); //刷新完成
+      LoggerUtil.d('============> onRefreshFocusData()', tag: 'FocusController-delayed');
+    });
   }
 
   /// 上滑加载更多
-  void onLoadMoreHomeData() {
-
+  void onLoadMoreFocusData() {
+    LoggerUtil.d('============> onLoadMoreFocusData()', tag: 'FocusController');
+    Future.delayed(const Duration(seconds: 2), () {
+      refreshController.refreshCompleted(); //刷新完成
+    });
   }
 }

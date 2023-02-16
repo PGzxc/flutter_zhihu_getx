@@ -45,6 +45,7 @@ class BaseRefreshController extends BaseController {
   void onInit() {
     super.onInit();
     //scrollController = ScrollController();
+    //_refreshController = RefreshController(initialRefresh: initialRefresh);
     _refreshController = RefreshController(initialRefresh: initialRefresh);
   }
 
