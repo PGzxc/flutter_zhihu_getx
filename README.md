@@ -22,6 +22,10 @@ A new Flutter project.
 * 项目框架搭建(底部导航+切换界面)
 * 底部导航参考：[r_nav_n_sheet][r_nav_n_sheet-site]和[Best-Flutter-UI-Templates][Best-Flutter-UI-site]
 * 点击首页、关注、会员、我的分别切换到对应界面，点击中间+号弹出Sheet
+### v2.0
+* 首页和会员页面主体框架搭建
+* 状态栏显示异常问题
+* 解决底部导航引起的body显示不全问题
 
 ## 四 开源库
 * GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
