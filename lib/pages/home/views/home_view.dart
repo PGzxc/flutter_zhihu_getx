@@ -16,16 +16,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildHomeWidget(context));
-
-    // RefreshPagingStatePage<HomeController>(
-    //     controller: controller,
-    //     onPressed: () => controller.onFirstInHomeData(),
-    //     onRefresh: () => controller.onRefreshHomeData(),
-    //     onLoadMore: () => controller.onLoadMoreHomeData(),
-    //     refreshController: controller.refreshController,
-    //     header: const ClassicHeader(),
-    //     lottieRocketRefreshHeader: false,
-    //     child: Scaffold(body: _buildHomeWidget(context)));
   }
 
   Widget _buildHomeWidget(BuildContext context) {
@@ -53,8 +43,7 @@ class HomeView extends GetView<HomeController> {
                           labelColor: Colors.red,
                           unselectedLabelColor: Colors.black,
                           indicatorWeight: 5.0,
-                          labelStyle:
-                              const TextStyle(height: 2, fontSize: 15)))),
+                          labelStyle: const TextStyle(height: 2, fontSize: 15)))),
               Row(
                 children: const [
                   Icon(Remix.search_line),

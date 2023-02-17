@@ -202,9 +202,9 @@ class _RNavNSheetState extends State<RNavNSheet> with SingleTickerProviderStateM
 
     var openIcon = widget.sheetOpenIcon ?? Icons.add;
     //var iconBg = _sheetOpen ? widget.sheetOpenIconBoxColor : widget.sheetCloseIconBoxColor ?? widget.sheetOpenIconBoxColor;
-    //var iconFg = _sheetOpen ? widget.sheetOpenIconColor : widget.sheetCloseIconColor ?? widget.sheetOpenIconColor;
+    var iconFg = _sheetOpen ? widget.sheetOpenIconColor : widget.sheetCloseIconColor ?? widget.sheetOpenIconColor;
     var iconBg = widget.sheetOpenIconBoxColor;
-    var iconFg = widget.sheetCloseIconColor;
+    //var iconFg = widget.sheetCloseIconColor;
     var fab = Expanded(
       child: Padding(
         padding: const EdgeInsets.only(top: 15),

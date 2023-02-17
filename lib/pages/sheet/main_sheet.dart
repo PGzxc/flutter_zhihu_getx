@@ -70,7 +70,7 @@ class Sheet extends StatelessWidget {
     return DraggableScrollableSheet(
       builder: (context, controller) {
         return Material(
-          color: theme.backgroundColor,
+          //color: theme.backgroundColor,
           borderRadius: const BorderRadius.vertical(
             top: Radius.circular(20),
           ),

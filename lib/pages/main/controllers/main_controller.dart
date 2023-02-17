@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:remixicon/remixicon.dart';
 import '../../../i18n/i18n_keys.dart';
 import '../../../provider/base_controller.dart';
 import '../../../res/app_theme.dart';
 import '../../../utils/logger/logger_util.dart';
+import '../../../widget/keep_alive_wrapper.dart';
+import '../../../widget/nav_sheet/r_nav_n_sheet.dart';
+import '../../focus/views/focus_view.dart';
+import '../../home/views/home_view.dart';
+import '../../me/views/me_view.dart';
+import '../../vip/views/vip_view.dart';
 import '../../widgets/custom_main_page.dart';
-import '../models/tabIcon_data.dart';
-import '../views/bottom_bar_view.dart';
 
 /// 日期：2022-05-16
 /// 描述：主页-主屏页面-Bod控制器
@@ -36,41 +41,19 @@ class MainController extends BaseController {
   late PageController pageController;
 
   /// 底部BottomNavigationBarItem
-  late List<BottomNavigationBarItem> bottomTabs;
+  late List<RNavItem> bottomTabs;
 
   late List<Widget> tabPageBodies;
 
+  late final Rx<Widget?> _tabBody =tabPageBodies[0].obs ;
+  set tabBody(index) => _tabBody.value = tabPageBodies[index];
+  get tabBody => _tabBody.value;
+
   late CustomMainPage customMainPage;
-  Widget tabBody = Container(
-    color: AppTheme.background,
-  );
 
   /// 底部Tab点击切换PageView
   void switchBottomTabBar(int index) {
-    switch (index) {
-      case 0:
-        tabBody = Container(
-          color: AppTheme.nearlyDarkBlue,
-        );
-        break;
-      case 1:
-        tabBody = Container(
-          color: AppTheme.nearlyBlue,
-        );
-        break;
-      case 2:
-        tabBody = Container(
-          color: AppTheme.nearlyBlack,
-        );
-        break;
-      case 3:
-        tabBody = Container(
-          color: AppTheme.deactivatedText,
-        );
-        break;
-    }
-    //点击底部BottomNavigationBarItem切换PageView页面
-    //pageController.jumpToPage(index);
+     tabBody=index;
   }
 
   /// PageView切换更新当前index
@@ -89,44 +72,36 @@ class MainController extends BaseController {
     pageController = PageController(initialPage: currentPage);
 
     /// 初始静态数据
-    bottomTabs = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: const Icon(
-          Icons.home_outlined,
-          size: 20,
-        ),
-        activeIcon: const Icon(Icons.home, size: 25),
-        label: Keys.home.tr,
+    bottomTabs = <RNavItem>[
+      const RNavItem(
+        activeIcon: Remix.home_6_fill,
+        icon: Remix.home_6_line,
+        label: "首页",
       ),
-      BottomNavigationBarItem(
-        icon: const Icon(Icons.outlined_flag_outlined, size: 20),
-        activeIcon: const Icon(
-          Icons.outlined_flag,
-          size: 25,
-        ),
-        label: Keys.navigation.tr,
+      const RNavItem(
+        icon: Remix.user_add_line,
+        activeIcon: Remix.user_add_fill,
+        label: "关注",
       ),
-      BottomNavigationBarItem(
-        icon: const Icon(Icons.dashboard_customize_outlined, size: 20),
-        activeIcon: const Icon(Icons.dashboard, size: 25),
-        label: Keys.project.tr,
+      const RNavItem(
+        icon: Remix.vip_crown_2_line,
+        activeIcon: Remix.vip_crown_2_fill,
+        label: "会员",
       ),
-      BottomNavigationBarItem(
-        icon: const Icon(Icons.person_outline, size: 20),
-        activeIcon: const Icon(Icons.person, size: 25),
-        label: Keys.me.tr,
+      const RNavItem(
+        icon: Remix.user_3_line,
+        activeIcon: Remix.user_3_fill,
+        label: "我的",
       ),
     ];
 
     tabPageBodies = <Widget>[
       ///使用了可滚动组件的页面缓存之后，使用KeepAliveWrapper包裹组件
-      // const KeepAliveWrapper(keepAlive: true, child: HomeView()),
-      // const KeepAliveWrapper(keepAlive: true, child: NavigationView()),
-      // const KeepAliveWrapper(keepAlive: true, child: ProjectView()),
-      // const KeepAliveWrapper(keepAlive: true, child: MessageView()),
-      // const KeepAliveWrapper(keepAlive: true, child: MeView()),
+      KeepAliveWrapper(keepAlive: true, child: HomeView()),
+      KeepAliveWrapper(keepAlive: true, child: FocusView()),
+      KeepAliveWrapper(keepAlive: true, child: VipView()),
+      KeepAliveWrapper(keepAlive: true, child: MeView()),
     ];
-
   }
 
   ///在 onInit() 之后调用 1 帧。这是进入的理想场所
@@ -175,4 +150,6 @@ class MainController extends BaseController {
       EasyLoading.dismiss();
     });
   }
+
+
 }

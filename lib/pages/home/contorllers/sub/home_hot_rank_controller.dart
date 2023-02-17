@@ -17,7 +17,7 @@ class HomeHotRankController extends BaseRefreshController{
   void onFirstInHotRankData() {
     if(refreshLoadState!=null){
       refreshLoadState= LoadState.success;
-      //refreshController.refreshCompleted(); //刷新完成
+      refreshController.refreshCompleted(); //刷新完成
     }
   }
 
@@ -33,6 +33,7 @@ class HomeHotRankController extends BaseRefreshController{
   void onLoadMoreHotRankData() {
     LoggerUtil.d('============> onLoadMoreHotRankData()', tag: 'HomeHotRankController');
     Future.delayed(const Duration(seconds: 2), () {
+      refreshController.loadComplete();
       refreshController.refreshCompleted(); //刷新完成
     });
   }

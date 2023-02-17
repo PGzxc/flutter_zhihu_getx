@@ -17,7 +17,7 @@ class HomeIdeaController extends BaseRefreshController{
   void onFirstInIdeaData() {
     if(refreshLoadState!=null){
       refreshLoadState= LoadState.success;
-      //refreshController.refreshCompleted(); //刷新完成
+      refreshController.refreshCompleted(); //刷新完成
     }
   }
 
@@ -33,7 +33,9 @@ class HomeIdeaController extends BaseRefreshController{
   void onLoadMoreIdeaData() {
     LoggerUtil.d('============> onLoadMoreIdeaData()', tag: 'HomeIdeaController');
     Future.delayed(const Duration(seconds: 2), () {
-      refreshController.refreshCompleted(); //刷新完成
+      refreshController.loadComplete();
+      //refreshController.loadNoData();
+      //refreshController.refreshCompleted(); //刷新完成
     });
   }
 

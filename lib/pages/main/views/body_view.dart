@@ -1,50 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zhihu_getx/pages/main/views/bottom_bar_view.dart';
-import 'package:flutter_zhihu_getx/pages/widgets/custom_main_page.dart';
 import 'package:get/get.dart';
+import 'package:remixicon/remixicon.dart';
+import '../../../res/app_theme.dart';
+import '../../../widget/nav_sheet/r_nav_n_sheet.dart';
+import '../../sheet/main_sheet.dart';
 import '../controllers/main_controller.dart';
-import '../models/tabIcon_data.dart';
 
 /// 日期：2023-02-16
 /// 描述：主页-主屏页面-Body
 /// 说明：包含：MainScreen(主屏页面)+MenuScreen(抽屉页面)
 
-
-class BodyView extends GetView<MainController>{
-   BodyView({Key? key}) : super(key: key);
+class BodyView extends GetView<MainController> {
+  BodyView({Key? key}) : super(key: key);
+  late final Widget tabBody = controller.tabPageBodies[0];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        //drawer: _buildDrawerView(context),
-        //bottomNavigationBar: _buildBottomNavigationBar(),
-        body: CustomMainPage());
+    return Obx(() => Scaffold(
+        appBar: PreferredSize(
+            //全局修改appBar的高度-0
+            preferredSize: const Size.fromHeight(0),
+            child: AppBar()),
+        body: controller.tabBody,
+        bottomNavigationBar: _buildBottomNavigationBar()));
   }
 
   /// 底部导航栏
   Widget _buildBottomNavigationBar() {
-    return Obx(() {
-      return BottomNavigationBar(
-        items: controller.bottomTabs,
-        currentIndex: controller.currentPage,
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: 16,
-        unselectedFontSize: 13,
-        onTap: (int index) => controller.switchBottomTabBar(index),
-      );
-    });
-  }
-
-  /// 内容页
-  Widget _buildPageView() {
-    return PageView(
-      //禁止滑动
-      //physics: const NeverScrollableScrollPhysics(),
-      controller: controller.pageController,
-      onPageChanged: (index) => controller.onPageChanged(index),
-      //禁止滑动
-      // physics: const NeverScrollableScrollPhysics(),
-      children: controller.tabPageBodies,
+    int _index = 0;
+    bool _open = false;
+    return RNavNSheet(
+      onTap: (index) {
+        _index = index;
+        controller.switchBottomTabBar(index);
+      },
+      initialSelectedIndex: _index,
+      sheet: Sheet(),
+      sheetOpenIcon: Remix.menu_4_line,
+      sheetCloseIcon: Remix.add_line,
+      sheetCloseIconBoxColor: Colors.white,
+      sheetCloseIconColor: AppTheme.nearlyDarkBlue,
+      sheetOpenIconColor: Colors.white,
+      onSheetToggle: (v) {
+        _open = v;
+      },
+      items: controller.bottomTabs,
     );
   }
+
+// Widget bottomBar(Widget tabBody) {
+//   int _index = 0;
+//   bool _open = false;
+//   return Column(
+//     children: <Widget>[
+//       const Expanded(
+//         child: SizedBox(),
+//       ),
+//       RNavNSheet(
+//         onTap: (index) {
+//           _index = index;
+//           controller.switchBottomTabBar(index);
+//           //switchBottomTabBar(tabBody, index);
+//
+//           // Future.delayed(const Duration(seconds: 1), () {
+//           //   setState(() {
+//           //     _index = index;
+//           //     switchBottomTabBar(index);
+//           //   });
+//           // });
+//         },
+//         initialSelectedIndex: _index,
+//         sheet: Sheet(),
+//         sheetOpenIcon: Remix.menu_4_line,
+//         sheetCloseIcon: Remix.add_line,
+//         sheetCloseIconBoxColor: Colors.white,
+//         sheetCloseIconColor: AppTheme.nearlyDarkBlue,
+//         sheetOpenIconColor: Colors.white,
+//         onSheetToggle: (v) {
+//           _open = v;
+//         },
+//         items: controller.bottomTabs,
+//       ),
+//     ],
+//   );
+// }
 }

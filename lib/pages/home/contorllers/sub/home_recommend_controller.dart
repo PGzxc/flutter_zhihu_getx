@@ -16,7 +16,7 @@ class HomeRecommendController extends BaseRefreshController{
   void onFirstInRecommendData() {
     if(refreshLoadState!=null){
       refreshLoadState= LoadState.success;
-      //refreshController.refreshCompleted(); //刷新完成
+      refreshController.refreshCompleted(); //刷新完成
     }
   }
 
@@ -24,6 +24,7 @@ class HomeRecommendController extends BaseRefreshController{
   void onRefreshRecommendData() {
     LoggerUtil.d('============> onRefreshRecommendData()', tag: 'HomeRecommendController');
     Future.delayed(const Duration(seconds: 2), () {
+      refreshController.loadComplete();
       refreshController.refreshCompleted(); //刷新完成
     });
   }

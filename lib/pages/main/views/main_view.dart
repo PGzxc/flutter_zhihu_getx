@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../i18n/i18n_keys.dart';
 import '../../../routes/app_routes.dart';
+import '../../widgets/custom_main_page.dart';
 import '../controllers/main_controller.dart';
+import 'main_custom_view.dart';
 import 'main_drawer.dart';
 import 'main_screen_view.dart';
 
@@ -16,35 +18,12 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return  const Scaffold(
-        body: MainScreen());
-    return Obx(() => Scaffold(
-        appBar: _buildAppBar(),
-        //drawer: const MainDrawer(),
-        body: const MainScreen()));
-  }
-
-  AppBar? _buildAppBar() {
-    if (controller.currentTitle == Keys.project.tr) {
-      return null;
-    } else {
-      return AppBar(
-        centerTitle: true,
-        title: Text("${controller.currentTitle}"),
-        actions: [
-          (controller.currentTitle == Keys.me.tr)
-              ? IconButton(
-                  icon: const Icon(Icons.settings),
-                  onPressed: () {
-                    Get.toNamed(Routes.setting);
-                  },
-                )
-              : IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
-                )
-        ],
-      );
-    }
-
+        body: MainCustomView()
+        //CustomMainPage()
+        //MainScreen()
+    );
+    // return Obx(() => Scaffold(
+    //     //drawer: const MainDrawer(),
+    //     body: const MainScreen()));
   }
 }
