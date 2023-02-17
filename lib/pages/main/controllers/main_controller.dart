@@ -12,7 +12,6 @@ import '../../focus/views/focus_view.dart';
 import '../../home/views/home_view.dart';
 import '../../me/views/me_view.dart';
 import '../../vip/views/vip_view.dart';
-import '../../widgets/custom_main_page.dart';
 
 /// 日期：2022-05-16
 /// 描述：主页-主屏页面-Bod控制器
@@ -48,8 +47,6 @@ class MainController extends BaseController {
   late final Rx<Widget?> _tabBody =tabPageBodies[0].obs ;
   set tabBody(index) => _tabBody.value = tabPageBodies[index];
   get tabBody => _tabBody.value;
-
-  late CustomMainPage customMainPage;
 
   /// 底部Tab点击切换PageView
   void switchBottomTabBar(int index) {
