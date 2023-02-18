@@ -27,6 +27,11 @@ A new Flutter project.
 * 状态栏显示异常问题
 * 解决底部导航引起的body显示不全问题
 
+### v3.0
+* 首页—>想法 页面完成
+* 首页—>推荐->全站 页面完成
+* 首页—>热榜 页面完成
+
 ## 四 开源库
 * GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
 * flutter_pulltorefresh:下拉刷新，上拉加载。项目地址：https://pub.flutter-io.cn/packages/pull_to_refresh

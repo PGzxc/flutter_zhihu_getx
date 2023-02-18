@@ -19,7 +19,10 @@ class AppTheme {
   static const Color deactivatedText = Color(0xFF767676);
   static const Color dismissibleBackground = Color(0xFF364A54);
   static const Color spacer = Color(0xFFF2F2F2);
+  static const Color primaryColor = Color(0xFFF2F2F2);
   static const String fontName = 'Roboto';
+
+
 
   static const TextTheme textTheme = TextTheme(
     headline4: display1,

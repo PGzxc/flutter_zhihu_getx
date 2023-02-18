@@ -4,6 +4,7 @@ import 'package:flutter_zhihu_getx/pages/home/views/sub/home_idea_view.dart';
 import 'package:flutter_zhihu_getx/pages/home/views/sub/home_recommend_view.dart';
 import 'package:flutter_zhihu_getx/provider/base_controller.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_ticket_provider_mixin.dart';
 import '../../../provider/base_refresh_controller.dart';
 import '../../../provider/state/load_state.dart';
 import '../../../utils/logger/logger_util.dart';
@@ -34,7 +35,7 @@ class HomeController extends BaseRefreshController {
       ),
       const KeepAliveWrapper(
         keepAlive: true,
-        child: HomeHotRecommendView(),
+        child: HomeRecommendView(),
       ),
       const KeepAliveWrapper(
         keepAlive: true,

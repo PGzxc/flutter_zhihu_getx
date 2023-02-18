@@ -20,6 +20,8 @@ abstract class Routes{
   static const homeRecommend='homeRecommend';
   static const homeHotRank='homeHotRank';
 
+
+
 }
 extension RoutesExtension on String{
   String nameToRoute()=>'/${toLowerCase()}';

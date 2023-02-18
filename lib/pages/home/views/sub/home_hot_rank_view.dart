@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/sub/home_hot_rank_controller.dart';
+import 'package:flutter_zhihu_getx/pages/home/models/hot_list_data.dart';
+import 'package:flutter_zhihu_getx/pages/home/widgets/hot_list_view.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
@@ -26,17 +28,18 @@ class HomeHotRankView extends GetView<HomeHotRankController> {
         refreshController: controller.refreshController,
         header: const WaterDropHeader(),
         lottieRocketRefreshHeader: false,
-        child: _buildIdeaWidget(context));
+        child: _buildIdeaWidget(context, controller));
   }
 }
 
-Widget _buildIdeaWidget(BuildContext context) {
-  return Container(
-    decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-    margin: const EdgeInsets.all(
-      15,
-    ),
-    alignment: Alignment.center,
-    child: Text("热榜3333"),
-  );
+Widget _buildIdeaWidget(
+    BuildContext context, HomeHotRankController controller) {
+  return ListView.builder(
+      itemCount: controller.hotList.length,
+      itemBuilder: (context, index) {
+        return Obx(() => HotListView(
+              hotListData: controller.hotList[index],
+              index: index,
+            ));
+      });
 }

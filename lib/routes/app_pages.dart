@@ -6,11 +6,11 @@ import 'package:flutter_zhihu_getx/pages/home/views/sub/home_recommend_view.dart
 import 'package:flutter_zhihu_getx/pages/me/bindings/me_binding.dart';
 import 'package:flutter_zhihu_getx/pages/vip/bindings/vip_binding.dart';
 import 'package:get/route_manager.dart';
+import '../pages/home/bindings/home_commend_binding.dart';
 import '../pages/main/bindings/main_binding.dart';
 import '../pages/main/views/main_view.dart';
 import '../pages/not_found/not_found_view.dart';
 import 'app_routes.dart';
-
 
 /// 日期：2022-05-15
 /// 描述：页面路由配置项
@@ -35,20 +35,20 @@ class AppPages {
         VipBinding(),
         MeBinding()
       ],
-
-      /// binding: MainBinding()
     ),
+
+    ///首页-推荐
+    GetPage(
+        name: Routes.homeRecommend.nameToRoute(),
+        page: () => const HomeRecommendView(),
+        title: Routes.homeRecommend,
+        binding: HomeReCommendBinding()),
+
     ///设置页面
     // GetPage(
     //     name: Routes.setting.nameToRoute(),
     //     page: () => const SettingView(),
     //     title: Routes.setting,
     //     binding: SettingBinding()),
-
-
-
-
-
-
   ];
 }

@@ -27,7 +27,7 @@ class HomeView extends GetView<HomeController> {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
           child: Row(
             children: [
-              const Icon(Remix.book_read_line),
+              const Icon(Remix.stack_line),
               Expanded(
                   flex: 1,
                   child: Container(
