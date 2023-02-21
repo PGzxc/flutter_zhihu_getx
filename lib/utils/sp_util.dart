@@ -55,7 +55,7 @@ class SpUtil {
         res = prefs.getStringList(key) as T?;
         break;
     }
-    LoggerUtil.d('res=============: ${res}');
+    LoggerUtil.d('res=============: $res');
     return res;
   }
 

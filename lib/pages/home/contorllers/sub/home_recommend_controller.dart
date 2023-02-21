@@ -7,13 +7,10 @@ import 'package:flutter_zhihu_getx/pages/home/views/subrecommend/recommend_fashi
 import 'package:flutter_zhihu_getx/pages/home/views/subrecommend/recommend_live.dart';
 import 'package:flutter_zhihu_getx/pages/home/views/subrecommend/recommend_movies.dart';
 import 'package:flutter_zhihu_getx/pages/home/views/subrecommend/recommend_science.dart';
-
-import '../../../../provider/base_controller.dart';
 import '../../../../provider/base_refresh_controller.dart';
 import '../../../../provider/state/load_state.dart';
 import '../../../../utils/logger/logger_util.dart';
 import '../../../../widget/keep_alive_wrapper.dart';
-import '../home_controller.dart';
 
 class HomeRecommendController extends BaseRefreshController {
   late TabController homeRecommendTabController;

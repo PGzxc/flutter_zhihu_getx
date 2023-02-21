@@ -16,6 +16,8 @@ class HomeRecommendView extends GetView<HomeRecommendController> {
 
   @override
   Widget build(BuildContext context) {
+    return _buildIdeaWidget(context, controller);
+
     return RefreshPagingStatePage<HomeRecommendController>(
         controller: controller,
         onPressed: () => controller.onFirstInRecommendData(),

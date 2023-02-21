@@ -1,3 +1,4 @@
+import 'package:flutter_zhihu_getx/pages/home/bindings/home_recommend_binding.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/sub/home_hot_rank_controller.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/sub/home_idea_controller.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/sub/home_recommend_controller.dart';
@@ -10,25 +11,12 @@ import '../contorllers/home_controller.dart';
 /// 描述：主页-主屏页面-首页--绑定(界面与控制器)
 /// 说明：将BaseController替换为BaseRefreshController，可刷新的Controller
 
-class HomeBinding extends Bindings{
+class HomeBinding extends Bindings {
   @override
   void dependencies() {
-
     Get.lazyPut(() => HomeIdeaController());
     Get.lazyPut(() => HomeRecommendController());
     Get.lazyPut(() => HomeHotRankController());
-
-    //Get.lazyPut(() => HomeIdeaController(),tag: "1");
-    //Get.lazyPut(() => HomeRecommendController(),tag: "2");
-    //Get.lazyPut(() => HomeHotRankController(),tag: "3");
-
     Get.lazyPut(() => HomeController());
-
-    //Get.lazyPut(() => HomeIdeaController());
-    //Get.lazyPut(() => HomeRecommendController());
-    //Get.lazyPut(() => HomeHotRankController());
-
-
   }
-
 }

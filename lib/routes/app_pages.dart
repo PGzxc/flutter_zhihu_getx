@@ -4,11 +4,14 @@ import 'package:flutter_zhihu_getx/pages/home/views/sub/home_hot_rank_view.dart'
 import 'package:flutter_zhihu_getx/pages/home/views/sub/home_idea_view.dart';
 import 'package:flutter_zhihu_getx/pages/home/views/sub/home_recommend_view.dart';
 import 'package:flutter_zhihu_getx/pages/me/bindings/me_binding.dart';
+import 'package:flutter_zhihu_getx/pages/me/views/login_view.dart';
+import 'package:flutter_zhihu_getx/pages/me/views/me_view.dart';
 import 'package:flutter_zhihu_getx/pages/vip/bindings/vip_binding.dart';
 import 'package:get/route_manager.dart';
-import '../pages/home/bindings/home_commend_binding.dart';
+import '../pages/home/bindings/home_recommend_binding.dart';
 import '../pages/main/bindings/main_binding.dart';
 import '../pages/main/views/main_view.dart';
+import '../pages/me/bindings/login_binding.dart';
 import '../pages/not_found/not_found_view.dart';
 import 'app_routes.dart';
 
@@ -28,27 +31,21 @@ class AppPages {
       name: Routes.main.nameToRoute(),
       page: () => const MainView(),
       title: Routes.main,
+      binding: MainBinding(),
       bindings: [
-        MainBinding(),
         HomeBinding(),
         FocusBinding(),
         VipBinding(),
-        MeBinding()
+        MeBinding(),
+        HomeReCommendBinding()
       ],
     ),
-
-    ///首页-推荐
+    ///登陆-注册
     GetPage(
-        name: Routes.homeRecommend.nameToRoute(),
-        page: () => const HomeRecommendView(),
-        title: Routes.homeRecommend,
-        binding: HomeReCommendBinding()),
+        name: Routes.login.nameToRoute(),
+        page: () => const LoginView(),
+        title: Routes.login,
+        binding: LoginBinding()),
 
-    ///设置页面
-    // GetPage(
-    //     name: Routes.setting.nameToRoute(),
-    //     page: () => const SettingView(),
-    //     title: Routes.setting,
-    //     binding: SettingBinding()),
   ];
 }

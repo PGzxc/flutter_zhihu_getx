@@ -7,10 +7,7 @@ import 'package:flutter_zhihu_getx/pages/home/contorllers/subrecommend/recommend
 import 'package:flutter_zhihu_getx/pages/home/contorllers/subrecommend/recommend_movies_controller.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/subrecommend/recommend_science_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/bindings_interface.dart';
 
-import '../contorllers/sub/home_idea_controller.dart';
 
 /// 日期：2023-02-18
 /// 描述：主页-主屏页面-首页--推荐绑定(界面与控制器)

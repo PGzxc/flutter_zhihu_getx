@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:remixicon/remixicon.dart';
 import '../../../res/app_theme.dart';
@@ -35,7 +36,7 @@ class BodyView extends GetView<MainController> {
         controller.switchBottomTabBar(index);
       },
       initialSelectedIndex: _index,
-      sheet: Sheet(),
+      //sheet: Sheet(),
       sheetOpenIcon: Remix.menu_4_line,
       sheetCloseIcon: Remix.add_line,
       sheetCloseIconBoxColor: Colors.white,
@@ -43,6 +44,7 @@ class BodyView extends GetView<MainController> {
       sheetOpenIconColor: Colors.white,
       onSheetToggle: (v) {
         _open = v;
+        Fluttertoast.showToast(msg: "打开Shet");
       },
       items: controller.bottomTabs,
     );

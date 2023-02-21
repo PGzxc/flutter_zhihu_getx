@@ -30,7 +30,7 @@ abstract class Keys {
   ///登陆与注册
   static const String welcomeLoginContent = 'welcomeLoginContent';
   static const String welcomeRegisterContent = 'welcomeRegisterContent';
-  static const String loginContent = 'loginContent';
+  static const String loginContent = '登录';
   static const String registerContent = 'registerContent';
   static const String logoutContent = 'logoutContent';
   static const String loginSuccess='loginSuccess';
@@ -39,14 +39,14 @@ abstract class Keys {
 
 
 
-  static const String editUserNameHint = 'editUserNameHint';
-  static const String editPasswordHint = 'editPasswordHint';
+  static const String editUserNameHint = '用户名';
+  static const String editPasswordHint = '密码';
   static const String editEnsurePasswordHint = 'editEnsurePasswordHint';
   static const String switchButtonLoginDesc = 'switchButtonLoginDesc';
   static const String switchButtonRegisterDesc = 'switchButtonRegisterDesc';
   static const String loginRegisterInfo = 'loginRegisterInfo';
-  static const String userNameEmptyInfo = 'userNameEmptyInfo';
-  static const String passwordEmptyInfo = 'passwordEmptyInfo';
+  static const String userNameEmptyInfo = '请输入用户名';
+  static const String passwordEmptyInfo = '请输入密码';
   static const String ensurePasswordEmptyInfo = 'ensurePasswordEmptyInfo';
   static const String ensurePasswordFail = 'ensurePasswordFail';
 

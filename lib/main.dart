@@ -26,7 +26,7 @@ Future<void> main() async {
         smartManagement: SmartManagement.keepFactory,
 
         ///主题设置
-        theme: ThemeUtil.getThemeModel(),
+        //theme: ThemeUtil.getThemeModel(),
         darkTheme: darkTheme,
         themeMode: ThemeMode.light,
 

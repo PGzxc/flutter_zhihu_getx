@@ -27,9 +27,6 @@ class VipController extends BaseRefreshController {
     homeTabController =
         TabController(length: tabValues.length, initialIndex: 0, vsync: this);
     tabPageBodies = <Widget>[
-      // HomeIdeaView(),
-      // HomeHotRecommendView(),
-      // HomeHotRankView()
 
       const KeepAliveWrapper(
         keepAlive: true,
@@ -57,30 +54,30 @@ class VipController extends BaseRefreshController {
       ),
     ];
 
-    onFirstInVipData();
+    //onFirstInVipData();
   }
 
   /// 第一次进入首页
-  void onFirstInVipData() {
-    if (refreshLoadState != null) {
-      refreshLoadState = LoadState.success;
-      refreshController.refreshCompleted(); //刷新完成
-    }
-  }
+  // void onFirstInVipData() {
+  //   if (refreshLoadState != null) {
+  //     refreshLoadState = LoadState.success;
+  //     refreshController.refreshCompleted(); //刷新完成
+  //   }
+  // }
 
   /// 下拉刷新首页
-  void onRefreshVipData() {
-    LoggerUtil.d('============> onRefreshVipData()', tag: 'VipController');
-    Future.delayed(const Duration(seconds: 2), () {
-      refreshController.refreshCompleted(); //刷新完成
-    });
-  }
+  // void onRefreshVipData() {
+  //   LoggerUtil.d('============> onRefreshVipData()', tag: 'VipController');
+  //   Future.delayed(const Duration(seconds: 2), () {
+  //     refreshController.refreshCompleted(); //刷新完成
+  //   });
+  // }
 
   /// 上滑加载更多
-  void onLoadMoreVipData() {
-    LoggerUtil.d('============> onLoadMoreVipData()', tag: 'VipController');
-    Future.delayed(const Duration(seconds: 2), () {
-      refreshController.refreshCompleted(); //刷新完成
-    });
-  }
+  // void onLoadMoreVipData() {
+  //   LoggerUtil.d('============> onLoadMoreVipData()', tag: 'VipController');
+  //   Future.delayed(const Duration(seconds: 2), () {
+  //     refreshController.refreshCompleted(); //刷新完成
+  //   });
+  // }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
+import 'package:getwidget/colors/gf_color.dart';
+import 'package:getwidget/components/button/gf_button.dart';
 import 'package:remixicon/remixicon.dart';
 
 /// 日期：2023-02-15
@@ -66,7 +69,7 @@ class Sheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-
+    QuillController _controller = QuillController.basic();
     return DraggableScrollableSheet(
       builder: (context, controller) {
         return Material(
@@ -77,99 +80,45 @@ class Sheet extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 8,
-                width: 40,
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.black26,
-                  borderRadius: BorderRadius.circular(20),
+                color: Colors.brown,
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Container(
+                            alignment: Alignment.topLeft,
+                            child: const Icon(Remix.reply_line))),
+                    Expanded(
+                        child: Container(
+                      height: 8,
+                      width: 30,
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    )),
+                    Expanded(
+                        child: Container(
+                            alignment: Alignment.topRight,
+                            child: GFButton(onPressed: () => {}, text: '发布')))
+                  ],
                 ),
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  controller: controller,
-                  padding: const EdgeInsets.all(5),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Wrap(
-                        children: [
-                          for (var icon in icons)
-                            FractionallySizedBox(
-                              widthFactor: 0.33,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: (icon["c"] as Color).withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(10)),
-                                margin: const EdgeInsets.all(5),
-                                padding: const EdgeInsets.all(15),
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      (icon["i"] as IconData),
-                                      color: icon["c"] as Color,
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      "${icon["t"]}",
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                        ],
+                children: [
+                  QuillToolbar.basic(controller: _controller),
+                  Expanded(
+                    child: Container(
+                      child: QuillEditor.basic(
+                        controller: _controller,
+                        readOnly: false, // true for view only mode
                       ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text(
-                          "More options".toUpperCase(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.primary,
-                            letterSpacing: 5,
-                          ),
-                        ),
-                      ),
-                      Wrap(
-                        children: [
-                          for (var icon in icons2) ...[
-                            if (icons2.indexOf(icon) > 0)
-                              const Divider(
-                                color: Colors.black26,
-                                height: 1,
-                                indent: 48,
-                              ),
-                            ListTile(
-                              leading: Icon(
-                                (icon["i"] as IconData),
-                                color: icon["c"] as Color,
-                              ),
-                              minLeadingWidth: 0,
-                              minVerticalPadding: 20,
-                              title: Text(
-                                "${icon["t"]}",
-                                style: const TextStyle(color: Colors.black),
-                              ),
-                              dense: true,
-                              visualDensity: VisualDensity.compact,
-                              subtitle: Text(
-                                "${icon["s"]}",
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(color: Colors.black54),
-                              ),
-                            ),
-                          ]
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                    ),
+                  )
+                ],
+              )),
             ],
           ),
         );

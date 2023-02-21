@@ -17,19 +17,25 @@ class VipView extends GetView<VipController> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshPagingStatePage<VipController>(
-        controller: controller,
-        onPressed: () => controller.onFirstInVipData(),
-        onRefresh: () => controller.onRefreshVipData(),
-        onLoadMore: () => controller.onLoadMoreVipData(),
-        refreshController: controller.refreshController,
-        header: const ClassicHeader(),
-        lottieRocketRefreshHeader: false,
-        child: Scaffold(
-          body: Container(
-              alignment: Alignment.center,
-              child: _buildVipWidget(context)),
-        ));
+    return Scaffold(
+      body: Container(
+          alignment: Alignment.center,
+          child: _buildVipWidget(context)),
+    );
+
+      // RefreshPagingStatePage<VipController>(
+      //   controller: controller,
+      //   onPressed: () => controller.onFirstInVipData(),
+      //   onRefresh: () => controller.onRefreshVipData(),
+      //   onLoadMore: () => controller.onLoadMoreVipData(),
+      //   refreshController: controller.refreshController,
+      //   header: const ClassicHeader(),
+      //   lottieRocketRefreshHeader: false,
+      //   child: Scaffold(
+      //     body: Container(
+      //         alignment: Alignment.center,
+      //         child: _buildVipWidget(context)),
+      //   ));
   }
 
   Widget _buildVipWidget(BuildContext context) {

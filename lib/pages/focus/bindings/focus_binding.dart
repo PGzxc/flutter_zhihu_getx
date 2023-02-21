@@ -1,3 +1,6 @@
+import 'package:flutter_zhihu_getx/pages/focus/contorllers/sub/focus_choose_controller.dart';
+import 'package:flutter_zhihu_getx/pages/focus/contorllers/sub/focus_idea_controller.dart';
+import 'package:flutter_zhihu_getx/pages/focus/contorllers/sub/focus_new_controller.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/bindings_interface.dart';
@@ -12,6 +15,11 @@ class FocusBinding extends Bindings{
   @override
   void dependencies() {
     Get.lazyPut(() => FocusController());
+
+    Get.lazyPut(() => FocusChooseController());
+    Get.lazyPut(() => FocusNewController());
+    Get.lazyPut(() => FocusIdeaController());
+
   }
 
 }

@@ -32,7 +32,28 @@ A new Flutter project.
 * 首页—>推荐->全站 页面完成
 * 首页—>热榜 页面完成
 
-## 四 开源库
+### v4.0
+* 关注->精选 页面完成
+* 会员->发现 页面完成
+* 我的 界面完成(包含未登录和已登录)
+
+## 四 运行说明
+由于我的界面->回答问题通过滑动移除上一张，获取下一张卡片的信息中使用了第三方库`flutter_tindercard(null safety)`，无法直接运行，可通过以下两种途径：
+方法一：cmd终端执行如下指令：
+
+```
+flutter run --no-sound-null-safety
+flutter build apk --no-sound-null-safety
+```
+
+方法2：Run/Debug Configurations的Additional run args：中添加如下参数
+
+```
+--no-sound-null-safety
+```
+
+
+## 五  开源库
 * GetX 是Flutter 的一个超轻且强大的解决方案。项目地址：https://github.com/jonataslaw/getx
 * flutter_pulltorefresh:下拉刷新，上拉加载。项目地址：https://pub.flutter-io.cn/packages/pull_to_refresh
 * flutter_easyloading:加载对话框。项目地址：https://pub.flutter-io.cn/packages/flutter_easyloading
@@ -43,6 +64,11 @@ A new Flutter project.
 * shimmer。拉表刷新时，显示前的加载框架。项目地址：https://pub.flutter-io.cn/packages/shimmer
 * getwidget：google开源的UI Kit工具库，包含1000多个Widget组件。简化开发流程。项目地址：https://pub.flutter-io.cn/packages/getwidget
 * Remix Icon 是一套面向设计师和开发者的开源图标库。项目地址：https://pub.flutter-io.cn/packages/remixicon
+* flutter_staggered_grid_view 网格布局合集。项目地址：https://github.com/letsar/flutter_staggered_grid_view
+* font_awesome_flutter 图标库。项目地址:https://pub.flutter-io.cn/packages/font_awesome_flutter
+* fluttertoast: Flutter中Toast工具。项目地址：https://pub.flutter-io.cn/packages/fluttertoast
+* flutter_quill: 富文本编辑器。项目地址：https://pub.flutter-io.cn/packages/flutter_quill
+* flutter_tindercard:通过滑动移除上一张，获取下一张卡片的信息。项目地址：https://pub.flutter-io.cn/packages/flutter_tindercard
 
 
 

@@ -44,7 +44,7 @@ class MainDrawer extends GetView<MainController> {
               child: InkWell(
                   onTap: () => {controller.isLogin
                             ? null
-                            : Get.toNamed(Routes.loginRegister.nameToRoute())},
+                            : Get.toNamed(Routes.login.nameToRoute())},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,

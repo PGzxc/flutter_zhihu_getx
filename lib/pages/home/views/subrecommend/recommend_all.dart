@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zhihu_getx/pages/home/contorllers/subrecommend/recommend_all_controller.dart';
 import 'package:flutter_zhihu_getx/pages/home/widgets/recommend_all_list_view.dart';
-import 'package:flutter_zhihu_getx/res/gaps.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-
-import '../../models/recommend_all_data.dart';
+import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import '../../../../provider/refresh/refresh_paging_state_page.dart';
 
 ///日期：2023-02-18
 ///描述：首页-推荐-全站
@@ -15,10 +13,19 @@ class RecommendAllView extends GetView<RecommendAllController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(
-      children: [getSearchBarUI(context), getRecommendAllView()],
-    ));
+    return RefreshPagingStatePage<RecommendAllController>(
+        controller: controller,
+        onPressed: () => controller.onFirstInRecommendAlData(),
+        onRefresh: () => controller.onRefreshRecommendAlData(),
+        onLoadMore: () => controller.onLoadMoreRecommendAlData(),
+        refreshController: controller.refreshController,
+        header: const WaterDropHeader(),
+        //header: const ClassicHeader(),
+        lottieRocketRefreshHeader: false,
+        child: SingleChildScrollView(
+            child: Column(
+          children: [getSearchBarUI(context), getRecommendAllView(controller)],
+        )));
   }
 
   //1-TabBar下方的搜索视图
@@ -89,14 +96,14 @@ class RecommendAllView extends GetView<RecommendAllController> {
   }
 
   //列表
-  Widget getRecommendAllView() {
+  Widget getRecommendAllView(RecommendAllController controller) {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: RecommendAllData.recommendAllList.length,
+        itemCount: controller.ideaList.length,
         itemBuilder: (context, index) {
-          return RecommendAllListView(
-              recommendAllData: RecommendAllData.recommendAllList[index]);
+          return Obx(() => RecommendAllListView(
+              recommendAllData: controller.ideaList.value[index]));
         });
   }
 }
